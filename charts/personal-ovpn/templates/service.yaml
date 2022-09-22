@@ -17,6 +17,9 @@ spec:
       targetPort: openvpn
       protocol: {{ .Values.service.protocol }}
       name: openvpn
+      {{- if and (or (eq .Values.service.type "NodePort") (eq .Values.service.type "LoadBalancer")) (not (empty .Values.service.nodePort)) }}
+      nodePort: {{ .Values.service.nodePort }}
+      {{- end }}
   selector:
     app.kubernetes.io/name: {{ include "personal-ovpn.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

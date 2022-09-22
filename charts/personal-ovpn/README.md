@@ -74,6 +74,7 @@ But if you really want to, you can enable it by setting `limitTraficToNamespace`
 | nodeSelector | object | `{}` | node labels for pod assignment |
 | resources | object | `{}` | pod resource requests & limits |
 | service.port | int | `31304` | OpenVPN port |
+| service.nodePort | int | `` | NodePort |
 | service.protocol | string | `"TCP"` | OpenVPN protocol |
 | service.type | string | `"NodePort"` | Service type |
 | tolerations | list | `[]` | node taints to tolerate (requires Kubernetes >=1.6) |
